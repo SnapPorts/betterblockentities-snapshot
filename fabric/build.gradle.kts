@@ -67,6 +67,7 @@ fun DependencyHandlerScope.fabricModule(name: String) {
 
 //declare maven repositories
 repositories {
+    mavenLocal()
     maven("https://maven.fabricmc.net/")
     maven("https://maven.caffeinemc.net/releases")
     maven("https://maven.caffeinemc.net/snapshots")

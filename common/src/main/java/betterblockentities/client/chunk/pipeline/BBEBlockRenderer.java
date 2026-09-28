@@ -26,6 +26,7 @@ import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.CommonColors;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
@@ -305,6 +306,7 @@ public class BBEBlockRenderer  {
         /* emit base canvas */
         emitter.setRenderType(rt);
         emitter.setColor(bannerBlockEntity.getBaseColor().getTextureDiffuseColor());
+        emitter.setColor(CommonColors.TEXTURE_TINT_COLORS.pick(bannerBlockEntity.getBaseColor()));
         emitter.setFlag(BBEEmitter.NO_QUAD_SPLITTING);
 
         emitter.emit(SECONDARY_MODEL_PARTS, isFaceCulled, emitter::buffer);
@@ -316,6 +318,7 @@ public class BBEBlockRenderer  {
 
             emitter.setSprite(sprite);
             emitter.setColor(layerColor.getTextureDiffuseColor());
+            emitter.setColor(CommonColors.TEXTURE_TINT_COLORS.pick(layerColor));
             emitter.emit(SECONDARY_MODEL_PARTS, isFaceCulled, emitter::buffer);
         }
 
